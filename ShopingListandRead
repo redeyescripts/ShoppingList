@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+
+namespace shoppingList
+{
+  class Program
+  {
+    class public item
+    {
+      string name;
+      int price;
+
+    }
+    public item(string _name,int _price)
+    {
+      name = _name;
+      price = _price;
+    }
+    public string name {get{return name;} }
+        public int price {get{return price;} }
+
+  }
+  static void Main(string[] args)
+  {
+    WriteShoppingList();
+  }
+  public static void WriteShoppingList()
+  {
+    List<string> shoppingList = new List<string>();
+     for(int i = 0; i <5; i++)
+     {
+       Console.WriteLine("ENTER ITEM:");
+        string item = Console.ReadLine();
+       Console.WriteLine("enter price:");
+        string price = Console.ReadLine();
+
+        string line = $"{item}/{price}";
+        shoppingList.Add(line);
+
+     }
+     string filePath = @"location";
+     string fileName = @"text file location";
+     File.WriteAllLines(Path.Combine(filePath,fileName,shoppingList);
+  }
+}
+
+## Read
+
+using System;
+
+
+namespace shoppingList
+{
+  class Program
+  {
+    public static void ReadFromShoppingList()
+    {
+      string filePath = @"";
+      string fileName = @"";
+      List<string> linesFromFile = File.ReadAllLines(Path.Combine(filePath, fileName)).ToList();
+      List<Item> shoppingItems = new List<Item>();
+       foreach (string line in linesFromFile)
+       {
+           Console.WriteLine(line);
+       }
+    }
+  }
+}
+
